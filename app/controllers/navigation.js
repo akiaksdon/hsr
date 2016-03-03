@@ -36,21 +36,21 @@ export default Ember.Controller.extend(HospitalRunVersion, ModalHelper, Progress
       }
     },
 
-    search: function() {
-      if (this.allowSearch && this.searchRoute) {
-        var currentRouteName = this.get('currentRouteName'),
-          currentSearchText = this.get('currentSearchText'),
-          textToFind = this.get('searchText');
-        if (currentSearchText !== textToFind || currentRouteName.indexOf('.search') === -1) {
-          this.set('searchText', '');
-          this.set('progressMessage', 'Searching for ' + textToFind + '.  Please wait...');
-          this.showProgressModal();
-          this.transitionToRoute(this.searchRoute + '/' + textToFind);
+    search: function() {//allow search functionality
+      if (this.allowSearch && this.searchRoute) {//If allow search and search Route is enables for the current session
+        var currentRouteName = this.get('currentRouteName'),//get RouteName from HTML and store to CurrentRouteName
+          currentSearchText = this.get('currentSearchText'),//get Current search text entered and store to CurrentsearchText
+          textToFind = this.get('searchText');//To find the current txt from HTML to texttofind variable
+        if (currentSearchText !== textToFind || currentRouteName.indexOf('.search') === -1) {//if the Currentsearchtext is not equla to text to find or the cureent Route does not have the .search value in the first line then execute IF( === is comparison in JS)
+          this.set('searchText', '');//set Searchtext to the current session
+          this.set('progressMessage', 'Searching for ' + textToFind + '.  Please wait...');//displaying the following message
+          this.showProgressModal();//Progress Modal call
+          this.transitionToRoute(this.searchRoute + '/' + textToFind);//show the Route to find
         }
       }
     },
 
-    navAction: function(nav) {
+    navAction: function(nav) {//NaAction to 
       if (this.currentOpenNav && this.currentOpenNav.route !== nav.route) {
         this.currentOpenNav.closeSubnav();
       }
