@@ -1,4 +1,10 @@
 import Ember from 'ember';
+ // Ember.Mixin class allows you to create mixins, whose properties can be added to other classes
+ //// Mix mixins into classes by passing them as the first arguments to
+// .extend. for example
+//App.CommentView = Ember.View.extend(App.Editable, {
+ // template: Ember.Handlebars.compile('{{#if view.isEditing}}...{{else}}...{{/if}}')
+//});
 export default Ember.Mixin.create({
   navItems: [
     {
