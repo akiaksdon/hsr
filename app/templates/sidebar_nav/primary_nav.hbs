@@ -1,4 +1,9 @@
 <div class="primary-nav">
+  <!-- this is a loop  the nav_items variable is like an array it contains appontments patient etc
+  then every element in nav_items array goes inside nav and is iterated
+  all naav_items are listed in navigation.js
+  
+  -->
   {{#each navItems as |nav|}}
     {{nav-menu nav=nav session=session }}
   {{/each}}
