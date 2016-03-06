@@ -19,11 +19,15 @@
         meaning in the website the gear icon turns green and shows logout and other option also.
         -->
     </a>
-
-    {{#if isShowingSettings }} <!-- this code will work only if true value in isShowSeting -->
+      <!-- this code will work only if true value in isShowSeting -->
+    {{#if isShowingSettings }} 
         <nav class="settings-nav">
         {{#if session.isAuthenticated}}<!-- if logged in it will show a logout option -->
             <a href="#" class="logout" {{ action 'invalidateSession' }}>{{t "navigation.actions.logout"}}</a>
+            <!--this {t navigations} is localization for translation 
+            its in app locale its used for localization/internationalization 
+            basically its used for translation and nothing else so in the dropsown in settings logout will be displayed
+            --> 
         {{else}}
             {{#link-to 'login'}}{{t "navigation.actions.login"}}{{/link-to}}<!--  else a login option -->
         {{/if}}
